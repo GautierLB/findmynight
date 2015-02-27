@@ -1,0 +1,98 @@
+﻿<?Infragistics.Models format="xaml" version="23"?>
+<Page xmlns="http://prototypes.infragistics.com/"
+                                                          Id="87a8aa0e-48c4-405b-bcbe-67315f4b4ff1">
+    <Page.Content>
+        <Content Width="800" Height="600" Id="93e3b538-d583-491a-83fc-2af68012f08a">
+            <Content.Layers>
+                <Layer Id="b9f50879-e920-4a9a-bf92-0df64d2ab326" Panel.Layout="Stretch" />
+                <AnnotationsLayer Id="8cc048d8-dab2-4a4e-b11f-df6649667310" Panel.Layout="Stretch" />
+            </Content.Layers>
+        </Content>
+    </Page.Content>
+    <Page.Scenes>
+        <Scene Title="Start" Created="01/30/2015 12:56:33" Id="1eff7f7e-72ad-47b9-b024-383e44855b36">
+            <Scene.KeyFrames>
+                <KeyFrame Id="dc22bfcb-05ab-42b0-b868-48b5bb72096d">
+                    <KeyFrame.Operations>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <TextBox Text="Quoi ?" Foreground="#FFB9B9B9" Id="1ba5641d-c061-4912-8642-2125ad01d35a" Panel.Bounds="32,18,150{5,2147483647},0*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <ComboBox Hint="Type d'évenement" FontStyle="" Id="1a267671-8919-40e9-b0c4-80d15b95a562" Panel.Bounds="200,16,200{5,2147483647},28{5,2147483647}">
+                                    <ComboBox.Items>
+                                        <Item Text="Séance de cinéma" Id="4da9f82c-8124-49b8-ac12-3cd04acec108" />
+                                        <Item Text="Concert" Id="e695b6e3-98ac-4ecd-9949-1658d519cffc" />
+                                        <Item Text="Sortie" Id="de1e09c3-2133-4752-85c2-e9aa74c8e1a2" />
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <TextBox Text="Quand ? (Date)" Foreground="#FFB9B9B9" Id="eec2d9b8-5186-4b60-8e2c-98f721453466" Panel.Bounds="418,18,104{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <TextBox Text="Quand ? (heure)" Foreground="#FFB9B9B9" Id="27a9a956-05f4-4064-a125-167f797dbedd" Panel.Bounds="540,18,107{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <TextBox Text="Où ?" Foreground="#FFB9B9B9" Id="552a5125-7056-4a62-98e9-6bfd4ab4473d" Panel.Bounds="665,18,120{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <MapMock MockType="Street Map" Id="70ef14dd-1fb1-43b9-bab1-50e44273a2bd" Panel.Bounds="267,122,506{5,2147483647},355{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Button Text="Trouvez ma soirée!" Id="89e8b87a-01ec-4979-a901-665c7cf95b1c" Panel.Bounds="325,62,150{5,2147483647},35{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Title Text="Évènements" Id="e48daee5-d090-4e92-bba9-fe531051fc8c" Panel.Bounds="14,56,5*{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="195d087a-e29b-4d62-aeff-874cd0c0b859" Panel.Bounds="54,130,0*,0*">
+                                    <Group.Children>
+                                        <Label Text="- Concert des black keys" FontStyle="Normal|Bold" Id="6a16f58e-3082-40a9-8c87-983236d0a8d3" Panel.Bounds="0,0,5*{5,2147483647},5*{5,2147483647}" />
+                                        <Label Text="Samedi&#xA;07 Mars 2015&#xA;20h00&#xA;THE BLACK KEYS&#xA;À LYON (69)&#xA;Halle Tony Garnier (Htg)" Id="4f64d014-6917-489c-86d2-9c690c37e0a6" Panel.Bounds="25,22,5*{5,2147483647},5*{5,2147483647}" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Title Text="Concerts/Sorties" FontSize="18" Id="6d448ccd-fe65-487e-8c89-ce1f4dbd9e4a" Panel.Bounds="32,99,5*{5,2147483647},5*{5,2147483647}" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Title Text="Films à l'affiche" FontSize="18" Id="efb23f2c-bd4c-46c6-8746-00d9faadc77c" Panel.Bounds="32,287,139*,25*" />
+                            </Add.Item>
+                        </Add>
+                        <Add Property="Panel.Children" Target="b9f50879-e920-4a9a-bf92-0df64d2ab326">
+                            <Add.Item>
+                                <Group GroupName="Group" Id="dcf96ed8-2e29-4721-82c9-5f3dd9e1d3d9" Panel.Bounds="54,333,171*,129*">
+                                    <Group.Children>
+                                        <Label Text="- Interstellar" FontStyle="Normal|Bold" Id="fcf445e3-ebd1-495d-bd2c-5071616477f9" Panel.Bounds="0,0,156*,18*" />
+                                        <Label Text="Pathé bellecour&#xA;Séances (VO) tous les jours&#xA;11h 13h 15h 17h 19h&#xA;Séances (VF) tous les jours&#xA;12h 14h 16h" Id="1e57a4d2-2f99-4306-aad6-ce275f68456a" Panel.Bounds="25,22,146*,107*" />
+                                    </Group.Children>
+                                </Group>
+                            </Add.Item>
+                        </Add>
+                    </KeyFrame.Operations>
+                </KeyFrame>
+            </Scene.KeyFrames>
+        </Scene>
+    </Page.Scenes>
+</Page>
