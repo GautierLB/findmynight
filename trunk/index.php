@@ -1,55 +1,70 @@
-<?php
-	$app_key = 'xTzS6N2Jxg2PT9ht';
-	$response = file_get_contents('http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q=bite&l=San+Diego&date=This%20Week');
-	$search = new SimpleXMLElement($response);
-	foreach ($search->events->event as $event) {
-		$date = new DateTime($event->start_time);		
-   		echo "<a href=".$event->url.">".$event->title."</a></br>";
-		if (isset($event->stop_time) && !empty($event->stop_time))
-		{
-			$date_fin = new DateTime($event->stop_time);
-			echo $date->format('d-m-y')."/". $date_fin->format('d-m-y')."</br>";
-		}
-		else
-		{
-			echo $date->format('d-m-y')."</br>";
-		}	
-		echo $date->format('H:i')."</br>";
-		echo $event->olson_path."</br>";
-		echo "<a href=".$event->venue_url.">".$event->venue_name."</a></br>";
-		echo $event->latitude;
-		echo $event->longitude;
-		echo "</br></br>";
-		$date_fin = "";
-	}
-	$categories=file_get_contents("http://api.eventful.com/rest/categories/list?app_key=xTzS6N2Jxg2PT9ht");
-	$categories = new SimpleXMLElement($categories);
-	foreach ($categories->category as $category) {
-   		echo $category->id."</br>";
-	}
-	$quoi="music";
-	$type="music";
-	$datedebut= new DateTime();
-	$lieu="Lyon";
-	$response = file_get_contents('http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q='.$quoi.'&category='.$type.'&l='.$lieu.'&date='.$datedebut->format('YYYYMMDD'));
-	$search = new SimpleXMLElement($response);
-	foreach ($search->events->event as $event) {
-		$date = new DateTime($event->start_time);		
-   		echo "<a href=".$event->url.">".$event->title."</a></br>";
-		if (isset($event->stop_time) && !empty($event->stop_time))
-		{
-			$date_fin = new DateTime($event->stop_time);
-			echo $date->format('d-m-y')."/". $date_fin->format('d-m-y')."</br>";
-		}
-		else
-		{
-			echo $date->format('d-m-y')."</br>";
-		}	
-		echo $date->format('H:i')."</br>";
-		echo $event->olson_path."</br>";
-		echo "<a href=".$event->venue_url.">".$event->venue_name."</a></br>";
-		echo "</br></br>";
-		$date_fin = "";
-	}
 
-?>
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<!-- encoding and vievwport specification -->
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<!-- Map js functions & initialisation -->
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQHyZ7c97niA4qbhDscTVyHRtdv_nXJ2Y"></script>
+	<script type="text/javascript">
+	  function initialize() {
+		var mapOptions = {
+		  center: { lat: 48.853, lng: 2.35},
+		  zoom: 8
+		};
+		var map = new google.maps.Map(document.getElementById('map-canvas'),
+			mapOptions);
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
+	<!-- CSS files -->
+
+	<link rel=stylesheet href="style.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+	</head>
+  
+	<body>
+		<div class="container-fluid">
+			<nav class="navbar navbar-inverse">
+				<center>
+					<form class="form-inline">
+					   <div class="form-group">
+					   
+						<input class="form-control" type="text" name="quoi" value="Quoi?">
+						
+						<select class="form-control">
+						  <option value="Soirée">Soirée</option>
+						  <option value="Cinema">Cinema</option>
+						  <option value="Concert">Concert</option>
+						  <option value="Activité">Activité</option>
+						</select>
+						
+						<input type="date" name="jour" class="form-control">
+						<input type="time" name="heure" class="form-control">
+						<input type="text" name="ou" value="Ou?" class="form-control">
+							<button type="button" text-align="center" class="btn btn-default">Trouver ma soirée!</button>
+				
+					  </div>
+					</form>
+				</center>
+			</nav>
+			<h1 id="titre">Évènements:</h1> 
+			<div class="row">
+				<div class="col-xs-4" id="colone1">
+					<div id="infos" class="div"></div>
+				</div>
+				<div class="col-xs-8" id="colone2">
+					<div id="map-canvas"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
