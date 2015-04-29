@@ -1,0 +1,13 @@
+body {
+margin:0 auto;
+width: 100%;
+overflow-x: hidden;
+}
+.col-xs-4 #infos{
+	height:700px;
+	overflow:auto;
+}
+.col-xs-8 #map-canvas{	
+	height:700px;
+}
+
