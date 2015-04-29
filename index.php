@@ -1,51 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 	$app_key = 'xTzS6N2Jxg2PT9ht';
 	$request_done = false;
@@ -103,16 +55,7 @@
 				$json = $result->results[0];
 
 				$lat = (string) $json->geometry->location->lat;
-				$long = (string) $json->geometry->location->lng;
-				
-
-						 
-
-		
-
-								
-							
-				
+				$long = (string) $json->geometry->location->lng;		
 		} 
 		else
 		{
@@ -140,7 +83,7 @@
 		{
 			$lieu="Lyon";
 		}*/
-		$request ='http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q='.$quoi.'&category='.$type.'&l='.$lieu.'&date='.$datedebut->format('YYYYMMDD');
+		$request ='http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q='.$quoi.'&category='.$type.'&l='.$lieu.'&date='.$datedebut->format('YmdH').'-'.$datedebut->add(new DateInterval('P1M'))->format('YmdH');//.'&sort_order=date';
 		echo $request;
 		$response = file_get_contents($request);
 		$search = new SimpleXMLElement($response);
