@@ -55,7 +55,16 @@
 				$json = $result->results[0];
 
 				$lat = (string) $json->geometry->location->lat;
-				$long = (string) $json->geometry->location->lng;		
+				$long = (string) $json->geometry->location->lng;
+				
+
+						 
+
+		
+
+								
+							
+				
 		} 
 		else
 		{
@@ -83,8 +92,8 @@
 		{
 			$lieu="Lyon";
 		}*/
-		$request ='http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q='.$quoi.'&category='.$type.'&l='.$lieu.'&date='.$datedebut->format('YmdH').'-'.$datedebut->add(new DateInterval('P1M'))->format('YmdH');//.'&sort_order=date';
-		echo $request;
+		$request ='http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q='.$quoi.'&category='.$type.'&l='.$lieu.'&date='.$datedebut->format('YYYYMMDD');
+	
 		$response = file_get_contents($request);
 		$search = new SimpleXMLElement($response);
 	}
@@ -134,7 +143,7 @@
 				<center>
 					<form class="form-inline" method="POST" action="index.php">
 						<div class="form-group">
-							<input class="form-control" type="text" name="quoi" value="Quoi?">
+							<input class="form-control" type="text" name="quoi" value="Quoi?" onfocus="if (this.value=='Quoi?')this.value='';">
 							<select name="categorie" class="form-control">
 								<?php
 									// Affichage des différentes catégories proposées par l'api dans la dropdownlist
@@ -147,7 +156,7 @@
 							</select>
 							<input type="date" name="jour" class="form-control">
 							<input type="time" name="heure" class="form-control">
-							<input type="text" name="ou" value="Où?" class="form-control">
+							<input type="text" name="ou" value="Où?" class="form-control" onfocus="if (this.value=='Où?')this.value='';">>
 							<button type="submit" class="btn btn-default text-center">Trouver ma soirée!</button>
 						</div>
 					</form>
@@ -160,13 +169,13 @@
 						// Affichage des évènements du jour
 						if ($request_done === false)
 						{
-							$response = file_get_contents('http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q=bite&l=Lyon&date=This%20Week');
+							$response = file_get_contents('http://api.eventful.com/rest/events/search?app_key=xTzS6N2Jxg2PT9ht&q=music&l=Lyon&date=This%20Week');
 							
 							$search = new SimpleXMLElement($response);
 						}
 						if ($search->total_items == '0')
 						{
-							echo "Pas de résultats pour la recherche demandée. =(";
+							echo "Pas de résultats pour la recherche demandée.";
 						}
 						echo "<script>	var map;
 								function initialize() {
@@ -249,9 +258,7 @@
 							echo $date->format('H:i')."</br>";
 							echo $event->city_name."/".$event->country_name."</br>";
 							echo "<a href=".$event->venue_url.">".$event->venue_name."</a></br>";
-							echo $event->latitude;
-							echo " ";
-							echo $event->longitude;
+							
 							echo "</br></br>";
 							$date_fin = "";
 						}
